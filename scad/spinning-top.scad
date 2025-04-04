@@ -2,7 +2,7 @@
 $fn=100;
 
 
-module spinning_top() {
+module spinning_top_body() {
   difference() {
     union() {
       intersection() {
@@ -15,5 +15,13 @@ module spinning_top() {
   }
 }
 
-spinning_top();
+module spinning_top_pin() {
+  cylinder(h=7, d=1.4);
+  translate([0, 0, 7]) cylinder(h=5, d1=7, d2=1.4);
+}
+
+
+color([0, 1, 0]) spinning_top_body();
+translate([0, 0, 30]) spinning_top_pin();
+
 
